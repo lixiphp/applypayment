@@ -25,16 +25,16 @@
     <h1>轻松筹-商城</h1>
   </div>
   <div data-role="content">
-<form id='alipaysubmit' name='alipaysubmit' action='https://mapi.alipay.com/gateway.do?_input_charset=utf-8' method='get'>
+<form id='orderForm' name='alipaysubmit' action='https://mapi.alipay.com/gateway.do?_input_charset=utf-8' method='get'>
 <input type='hidden' name='_input_charset' value='utf-8'/>
 <input type='hidden' name='body' value='I7 4790/GTX770四核独显组装电脑主机 整机台式游戏DIY兼容机 '/>
-<input type='hidden' name='exter_invoke_ip' value='114.215.188.109'/>
-<input type='hidden' name='notify_url' value='http://shop.nuochou.com/alipaynotity'/>
+<input type='hidden' name='exter_invoke_ip' value='127.0.0.1'/>
+<input type='hidden' name='notify_url' value='http://<?=$_SERVER["HTTP_HOST"]?>/alipaynotity'/>
 <input type='hidden' name='out_trade_no' value='<?php echo time(); ?>'/>
 <input type='hidden' name='payment_type' value='1'/>
-<input type='hidden' name='return_url' value='http://shop.nuochou.com/alipayresult'/>
+<input type='hidden' name='return_url' value='http://<?=$_SERVER["HTTP_HOST"]?>/alipayresult'/>
 <input type='hidden' name='service' value='create_direct_pay_by_user'/>
-<input type='hidden' name='show_url' value='http://shop.nuochou.com/'/>
+<input type='hidden' name='show_url' value='http://<?=$_SERVER["HTTP_HOST"]?>/'/>
 <input type='hidden' name='subject' value='I7 4790/GTX770四核独显组装电脑主机 整机台式游戏DIY兼容机 '/>
 <input type='hidden' name='total_fee' value='5680'/>
 <input type='hidden' name='sign' value='cfe000448447ff81a087531f2ef7310f'/>
@@ -62,6 +62,9 @@
         <legend>支付方式：</legend>
         <input name="payment_method" id="payment_method-alipay" value="alipay" checked="checked" type="radio">
         <label for="payment_method-alipay"><img src="data:image/gif;base64,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" alt="支付宝" /></label>
+          <input name="payment_method" id="payment_method-baifubao" value="baifubao" type="radio" />
+          <label for="payment_method-baifubao">
+              <img src="data:image/png;base64,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" alt="百度钱包" /></label>
       </fieldset>
       <p align="center"><input value="立即购买" type="submit" data-inline="true" /></p>
     </form>
@@ -71,17 +74,6 @@
   </div>
 </div>
 <script type="text/javascript">
-  var sidBlur = function(){
-    if($("#sid").val()==''){
-      $("#sid_error").show();
-      $("#sid_error").html("学号不能为空");
-      return false;
-    }
-    return true;
-  };
-  var sidFocus = function(){
-    $("#sid_error").hide();
-  };
   var userInputBlur = function(){
     if($("#price").val()==''){
       $("#price_error").show();
@@ -94,10 +86,15 @@
     $("#price_error").hide();
   };
   $(document).ready(function(){
-    $('#sid').blur(sidBlur);
-    $('#sid').focus(sidFocus);
-    $('#price').blur(userInputBlur);
-    $('#price').focus(userInputFocus);
+      $('#price').blur(userInputBlur);
+      $('#price').focus(userInputFocus);
+      $('#orderForm').submit(function() {
+          var payment = $("input[name='payment_method']:checked").val();
+          if (payment == 'baifubao') {
+              document.location.href='https://www.baifubao.com/api/0/pay/0/wapdirect/0?sign_method=1&total_amount=5680&sp_no=<?=time()?>&page_url=http%3A%2F%2F<?=$_SERVER["HTTP_HOST"]?>%2FbfbWapPayReturn&input_charset=1&goods_name=<?=urlencode('I7 4790/GTX770四核独显组装电脑主机 整机台式游戏DIY兼容机')?>&order_no=<?=time()?>&currency=1&return_url=http%3A%2F%2F<?=$_SERVER["HTTP_HOST"]?>%2FbfbWapPayNotify&version=2&sign=7a3a386debbc8898c2115103844b8741&order_create_time=<?=time()?>&pay_type=2&service_code=1';
+              return false;
+          }
+      });
   });
 </script>
 </body>
