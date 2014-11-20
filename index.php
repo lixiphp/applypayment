@@ -70,7 +70,7 @@
     </form>
   </div>
   <div data-role="footer" data-theme="b">
-    <h4>轻松筹&nbsp;|&nbsp;京ICP备14052685号-1</h4>
+    <h4>© 2014 轻松筹 - 北京轻松筹网络科技有限公司 &nbsp;|&nbsp;京ICP备14052685号-1</h4>
   </div>
 </div>
 <script type="text/javascript">
